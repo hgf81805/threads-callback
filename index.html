@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads OAuth Callback</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 24px;
+      line-height: 1.7;
+      color: #222;
+    }
+
+    .box {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      background: #fafafa;
+      word-break: break-all;
+    }
+
+    code {
+      display: block;
+      padding: 16px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .warn {
+      color: #b00020;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h1>Threads OAuth Callback</h1>
+
+  <p>
+    このページは、Metaから返ってきた認可コードを表示するだけのページです。
+  </p>
+
+  <div class="box">
+    <h2>認可コード</h2>
+    <code id="code">取得中...</code>
+    <button id="copyButton">codeをコピー</button>
+  </div>
+
+  <p class="warn">
+    注意：App Secret、アクセストークン、APIキー、.envの中身はこのページに書かないでください。
+  </p>
+
+  <h2>現在のURL</h2>
+  <code id="currentUrl"></code>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const error = params.get("error");
+    const errorDescription = params.get("error_description");
+
+    const codeEl = document.getElementById("code");
+    const currentUrlEl = document.getElementById("currentUrl");
+    const copyButton = document.getElementById("copyButton");
+
+    currentUrlEl.textContent = window.location.href;
+
+    if (code) {
+      codeEl.textContent = code;
+    } else if (error) {
+      codeEl.textContent = `エラー: ${error}\n${errorDescription || ""}`;
+    } else {
+      codeEl.textContent = "code が見つかりません。Metaの認可URLからこのページに戻ってきてください。";
+    }
+
+    copyButton.addEventListener("click", async () => {
+      if (!code) {
+        alert("コピーできる code がありません。");
+        return;
+      }
+
+      await navigator.clipboard.writeText(code);
+      alert("code をコピーしました。");
+    });
+  </script>
+</body>
+</html>
