@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Privacy Policy / プライバシーポリシー — threads-lead-finder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+         max-width: 760px; margin: 2em auto; padding: 1em; line-height: 1.7; color: #222; }
+  h1 { border-bottom: 2px solid #333; padding-bottom: 0.3em; }
+  h2 { margin-top: 1.8em; border-left: 4px solid #333; padding-left: 0.6em; font-size: 1.2em; }
+  code { background: #f4f4f4; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.95em; }
+  a { color: #0a58ca; }
+  .meta { color: #666; font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy / プライバシーポリシー</h1>
+<p class="meta"><strong>Last updated:</strong> 2026-05-31</p>
+
+<h2>1. Application Overview / アプリケーション概要</h2>
+<p>
+<em>threads-lead-finder</em> is an internal research tool that uses the official
+Threads Graph API (<code>https://graph.threads.net/</code>) to identify Threads users
+who have publicly expressed interest in career consultation, job change, or related topics.
+The application is operated by the developer for internal lead research and outreach planning
+purposes. No automated messaging is performed by this application.
+</p>
+<p>
+本アプリケーション「threads-lead-finder」は、Threads 公式 Graph API を使用して、
+公開された Threads 投稿の中から、転職・キャリア相談に関心を持つユーザーを特定するための
+社内リサーチツールです。本アプリケーション自体がメッセージを自動送信することはありません。
+</p>
+
+<h2>2. Data We Collect / 収集データ</h2>
+<p>The application collects only publicly available data returned by the official Threads Graph API:</p>
+<ul>
+  <li>Public post IDs, post URLs, and post text</li>
+  <li>Public usernames and profile URLs of the post authors</li>
+  <li>Post timestamps</li>
+</ul>
+<p>No private data, direct messages, follower lists, email addresses, or personally identifying
+information beyond what is publicly visible on Threads is collected.</p>
+
+<h2>3. Data Use / データ利用目的</h2>
+<ul>
+  <li>To identify potential leads for career consultation outreach.</li>
+  <li>To classify and score the leads using a deterministic keyword rule engine and/or the
+      Anthropic Claude API.</li>
+  <li>For human review prior to any outreach. No automated DMs, replies, or contact of any kind
+      are performed by the application.</li>
+</ul>
+
+<h2>4. Data Storage / データ保管</h2>
+<p>Collected data is stored locally on the operator's machine in a JSON database file
+(<code>data/db.json</code>) and exported CSV files. No data is uploaded to any third-party
+storage or server controlled by us.</p>
+
+<h2>5. Data Retention and Deletion / データ保持・削除</h2>
+<p>Collected records are retained only as long as needed for lead review (typically less than
+30 days). Any individual may request deletion of their data by emailing
+<a href="mailto:hgf51805@gmail.com">hgf51805@gmail.com</a>. Upon receiving a verified request,
+all corresponding entries will be deleted from local storage within 7 days.</p>
+
+<h2>6. Deauthorization and Data Deletion Requests / 連携解除・データ削除請求</h2>
+<p>If a user revokes the application's authorization on Threads, the application will cease
+using their authorization token. To request bulk deletion of collected public-post data
+related to your account, contact
+<a href="mailto:hgf51805@gmail.com">hgf51805@gmail.com</a>.</p>
+
+<h2>7. Third Party Sharing / 第三者提供</h2>
+<p>Collected data is not sold, shared, or transmitted to any third party.
+For optional AI-based classification, the text of each public post is sent to the
+Anthropic Claude API solely to produce a categorical lead-rank label.
+This is the only third-party data flow, and no Threads user identifiers are sent.</p>
+
+<h2>8. Compliance / 法令順守</h2>
+<p>Use of this application is subject to the Threads Platform Terms, Meta Platform Policies,
+and applicable laws including Japan's Act on the Protection of Personal Information (APPI)
+and the EU GDPR where relevant.</p>
+
+<h2>9. Contact / お問い合わせ</h2>
+<p>For any inquiries about this policy or data handling, contact
+<a href="mailto:hgf51805@gmail.com">hgf51805@gmail.com</a>.</p>
+
+</body>
+</html>
